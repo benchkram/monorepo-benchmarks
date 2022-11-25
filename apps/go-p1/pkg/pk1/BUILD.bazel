@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "pk1",
+    srcs = ["pk1.go"],
+    importpath = "monorepo-benchmarks/apps/go-p1/pkg/pk1",
+    visibility = ["//visibility:public"],
+)
