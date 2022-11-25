@@ -1,0 +1,12 @@
+project: monorepo-benchmarks
+
+dependencies: [
+  git,
+  go_1_18,
+]
+
+build:
+  gop1:
+    input: apps/go-p1/*
+    cmd: cd apps/go-p1 && go build -o go-p1
+    target: apps/go-p1/go-p1
