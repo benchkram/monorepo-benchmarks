@@ -1,6 +1,7 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
 # gazelle:exclude repo-creator
+# gazelle:exclude benchmark
 # gazelle:prefix monorepo-benchmarks
 gazelle(name = "gazelle")
 

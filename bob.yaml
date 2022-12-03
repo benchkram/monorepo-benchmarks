@@ -1,12 +1,14 @@
 project: monorepo-benchmarks
+nixpkgs: https://github.com/NixOS/nixpkgs/archive/nixos-22.11.tar.gz
 
 dependencies: [
-  git,
-  go_1_18,
+  go_1_19,
 ]
 
+import:
+  - apps/
+
 build:
-  gop1:
-    input: apps/go-p1/*
-    cmd: cd apps/go-p1 && go build -o go-p1
-    target: apps/go-p1/go-p1
+  build:
+    dependsOn:
+      - apps/build
