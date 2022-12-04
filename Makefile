@@ -70,33 +70,42 @@ projects100:
 	./rc --dir=apps --projects=100
 projects1000:
 	./rc --dir=apps --projects=1000
+projects5000:
+	./rc --dir=apps --projects=5000
 
 benchmark-bob-10: prepare projects10
 	bob build
-	./bm -iterations=20 -cmd "bob build"
+	./bm -iterations=200 -cmd "bob build"
 benchmark-bob-50: prepare projects50
 	bob build
-	./bm -iterations=20 -cmd "bob build"
+	./bm -iterations=200 -cmd "bob build"
 benchmark-bob-100: prepare projects100
 	bob build
 	./bm -iterations=200 -cmd "bob build"
 benchmark-bob-1000: prepare projects1000
 	bob build
 	./bm -iterations=200 -cmd "bob build"
+benchmark-bob-5000: prepare projects5000
+	bob build
+	./bm -iterations=200 -v -cmd "bob build"
 	
 benchmark-bazel-10: prepare projects10
 	bazel run --experimental_convenience_symlinks=ignore //:gazelle
 	bazel build --experimental_convenience_symlinks=ignore //...
-	./bm -iterations=20 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
+	./bm -iterations=200 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
 benchmark-bazel-50: prepare projects50
 	bazel run --experimental_convenience_symlinks=ignore //:gazelle
 	bazel build --experimental_convenience_symlinks=ignore //...
-	./bm -iterations=20 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
+	./bm -iterations=200 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
 benchmark-bazel-100: prepare projects100
 	bazel run --experimental_convenience_symlinks=ignore //:gazelle
 	bazel build --experimental_convenience_symlinks=ignore //...
 	./bm -iterations=200 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
 benchmark-bazel-1000: prepare projects1000
+	bazel run --experimental_convenience_symlinks=ignore //:gazelle
+	bazel build --experimental_convenience_symlinks=ignore //...
+	./bm -iterations=200 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
+benchmark-bazel-5000: prepare projects5000
 	bazel run --experimental_convenience_symlinks=ignore //:gazelle
 	bazel build --experimental_convenience_symlinks=ignore //...
 	./bm -iterations=200 -cmd "bazel build --experimental_convenience_symlinks=ignore //..."
