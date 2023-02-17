@@ -87,7 +87,7 @@ benchmark-bob-1000: prepare projects1000
 	./bm -iterations=200 -cmd "bob build"
 benchmark-bob-5000: prepare projects5000
 	bob build
-	./bm -iterations=200 -v -cmd "bob build"
+	./bm -iterations=200 -cmd "bob build"
 	
 benchmark-bazel-10: prepare projects10
 	bazel run --experimental_convenience_symlinks=ignore //:gazelle

@@ -66,7 +66,9 @@ build:
     {{- end }}
 {{- range $val := Iterate .Projects }}
   gop{{ $val }}:
-    input: go-p{{ $val }}/**/*.go
+    input: |
+      go-p{{ $val }}/pkg/*.go
+      go-p{{ $val }}/*.go
     cmd: cd go-p{{ $val }} && go build -o go-p{{ $val }}
     target: go-p{{ $val }}/go-p{{ $val }}
 {{- end }}
