@@ -39,4 +39,4 @@ go-projects-5000    | 0,863s | 1,037s
 System: Linux Ubuntu 20.04 | AMD Ryzen 7 PRO 4750U | 32GB of RAM | SSD.
 
 
-17. Feb 2021
+17. Feb 2023
